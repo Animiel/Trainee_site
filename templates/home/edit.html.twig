@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Modifier le message{% endblock %}
+
+{% block body %}
+
+    <h1>Modifier le message</h1>
+
+    {{ form_start(messageForm) }}
+        {{ form_row(messageForm.text) }}<br>
+        {{ form_row(messageForm.image) }}<br>
+
+        <button type="submit" class="btn">Valider</button>
+    {{ form_end(messageForm) }}
+{% endblock %}

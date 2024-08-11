@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Accueil{% endblock %}
+
+{% block body %}
+<div class="homepage">
+    <span class="prevSlide" onclick="plusSlides(-1)">&lt;</span>
+    
+    <div class="homeSlideShow">
+        <div class="parole-acceuil mySlides">
+            <h2>PAROLE D'ACCUEIL DU PASTEUR</h2>
+        
+            {% for message in messages %}
+                {% if message.id == 1 %}
+                    {% if app.user %}
+                        <button class="modify">
+                            <a href="{{ path('edit_message', {'id': message.id}) }}">EDITER</a>
+                        </button>
+                    {% endif %}
+                    <p>
+                        {{ message.text }}
+                    </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        {# <div class="img-eglise">
+            <img src="{{ asset('img/site/Eglise-Saverne-2.jpg') }}" height="300" width="225">
+        </div> #}
+        
+        <div class="parole-biblique mySlides">
+            <h2>PAROLE BIBLIQUE</h2>
+        
+            {% for message in messages %}
+                {% if message.id == 2 %}
+                {% if app.user %}
+                    <button class="modify">
+                        <a href="{{ path('edit_message', {'id': message.id}) }}">EDITER</a>
+                    </button>
+                {% endif %}
+                    <p>
+                        {{ message.text }}
+                    </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        <div class="event-particulier mySlides">
+            <div class="evenement">
+                {% for event in eventsParticuliers %}
+                    {% if event.pages %}
+                        {% if event.image %}
+                        <img src="{{ asset('/img/event/' ~ event.image ~ '') }}" class="image-event">
+                        {% endif %}
+                        <div class="infos-event">
+                            <h3>{{ event.intitule }}</h3>
+                            <p>
+                                {{ event.dateEvent | date('d/m/Y') }} | {{ event.dateEvent | date('H:i') }}
+                            </p>
+                            <p>
+                                {{ event.description }}
+                            </p>
+                        </div>
+                    {% endif %}
+                    {% if app.user %}
+                        <button class="modify">
+                            <a href="{{ path('edit_event', {'id': event.id}) }}">Modifier</a>
+                        </button>
+                        <button class="delete" onclick="validate()">
+                            <a href="{{ path('suppr_event', {'id': event.id}) }}">Supprimer</a>
+                        </button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="next-rdv mySlides">
+            <h2>LES PROCHAINS RENDEZ-VOUS</h2>
+        
+            {% for event in events %}
+                <p>
+                    {{ event.intitule }}
+                </p>
+            {% endfor %}
+        
+            <div>
+                <p>
+                    Si vous voulez être tenu au courant des dernières informations paroissiales et intégrer la liste de diffusions par mails, vous pouvez nous indiquer votre adresse e-mail ci-dessous.<br>
+                    <b>N'oubliez pas de valider avec le bouton "Envoyer" !</b>
+                </p>
+        
+                {{ form_start(adhForm) }}
+                    {{ form_row(adhForm.email) }}<br>
+        
+                    <button type="submit" class="btn">Envoyer</button>
+                {{ form_end(adhForm) }}
+            </div>
+        </div>
+        <div>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+    
+    
+    <span class="nextSlide" onclick="plusSlides(1)">&gt;</span>
+</div>
+
+{% endblock %}

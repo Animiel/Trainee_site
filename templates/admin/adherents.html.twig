@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Liste des adhérents{% endblock %}
+
+{% block body %}
+
+    <h1>Les adhérents</h1>
+
+    <p>
+        Voici la liste des adresses e-mails des personnes souhaitant être informées des changements de planning, etc.
+    </p>
+
+    <ul>
+        {% for adherent in adherents %}
+            <li>{{ adherent.email }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

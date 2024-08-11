@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Evénement | Formulaire{% endblock %}
+
+{% block body %}
+
+    {# {% if edit %}
+        <h1>Modifier un évènement</h1>
+    {% else %}
+        <h1>Nouvel évènement</h1>
+    {% endif %} #}
+
+<div class="form">
+    {{ form_start(eventForm) }}
+        {{ form_row(eventForm.intitule) }}<br>
+        {{ form_row(eventForm.dateEvent) }}<br>
+        {{ form_row(eventForm.dateFin) }}<br>
+        {{ form_row(eventForm.lieu) }}<br>
+        {{ form_row(eventForm.description) }}<br>
+        {{ form_row(eventForm.image) }}<br>
+        {{ form_row(eventForm.bgColor) }}<br>
+        {{ form_row(eventForm.textColor) }}<br>
+        {{ form_row(eventForm.allDay) }}<br>
+        {{ form_row(eventForm.pages) }}<br>
+
+        <button type="submit" class="btn">Valider</button>
+    {{ form_end(eventForm) }}
+</div>
+{% endblock %}

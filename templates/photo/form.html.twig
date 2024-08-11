@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Photos | Formulaire{% endblock %}
+
+{% block body %}
+
+    {# {% if edit %}
+        <h1>Modifier un évènement</h1>
+    {% else %}
+        <h1>Nouvel évènement</h1>
+    {% endif %} #}
+
+<div class="form">
+    {{ form_start(photoForm) }}
+        {{ form_row(photoForm.photo) }}<br>
+        {{ form_row(photoForm.description) }}<br>
+        {{ form_row(photoForm.lien) }}<br>
+
+        <button type="submit" class="btn">Valider</button>
+    {{ form_end(photoForm) }}
+</div>
+
+{% endblock %}

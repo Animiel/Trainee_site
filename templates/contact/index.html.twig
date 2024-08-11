@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Contact{% endblock %}
+
+{% block body %}
+
+<div class="contactForm">
+    <p>
+        Pour tout renseignement, vous pouvez nous joindre via le formulaire <strong>ci-dessous</strong>.
+    </p>
+    
+    <h3>Formulaire de contact</h3>
+    
+    <div class="form">
+        {{ form_start(contactForm) }}
+            {{ form_row(contactForm.nom) }}<br>
+            {{ form_row(contactForm.prenom) }}<br>
+            {{ form_row(contactForm.email) }}<br>
+            {{ form_row(contactForm.numero) }}<br>
+            {{ form_row(contactForm.sujet) }}<br>
+            {{ form_row(contactForm.message) }}<br>
+        
+            <button type="submit" class="btn">Valider</button>
+        {{ form_end(contactForm) }}
+    </div>
+</div>
+{% endblock %}

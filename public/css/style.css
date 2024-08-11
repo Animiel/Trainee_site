@@ -1,0 +1,346 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 100%;
+    background: url("https://apps.tourisme-alsace.info/photos/saverne/photos/221002171_1.jpg") no-repeat fixed center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    display: block;
+    background-color: #000000;
+}
+
+.menuder {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    /* width: 100vw; */
+    text-align: center;
+    align-items: center;
+}
+
+.menuder p, .menuder div {
+    border-right: 1px solid #ffffff;
+}
+
+.menuder p:last-child {
+    border: none;
+}
+
+.menuder a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.menuder a:hover, .menuder div:hover {
+    background-color: #FFAB5E;
+    color: #000000;
+}
+
+.menu-pratique {
+    display: flex;
+    position: relative;
+    justify-content: baseline;
+}
+
+.sousmenu {
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #000000;
+    list-style: none;
+    line-height: 40px;
+}
+
+.menu-pratique:hover .sousmenu {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+
+
+
+.homepage {
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeSlideShow {
+    width: 80%;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prevSlide, .nextSlide {
+    cursor: pointer;
+    align-self: center;
+    color: #dddddd;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.prevSlide:hover, .nextSlide:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.parole-acceuil, .parole-biblique, .event-particulier, .next-rdv {
+    width: 100%;
+    height: auto;
+}
+
+.parole-acceuil {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #dddddd;
+    text-align: justify;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.parole-acceuil button {
+    width: 70px;
+    align-self: center;
+}
+
+.img-eglise {
+    grid-area: eglise;
+    width: 220px;
+    height: 300px;
+    background-color: #dddddd;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.img-eglise img {
+    width: 100%;
+    height: 100%;
+}
+
+.event-particulier {
+    grid-area: particulier;
+    background-color: #dddddd;
+    text-align: center;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 50px 10px;
+}
+
+.evenement {
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+}
+
+.next-rdv {
+    grid-area: next;
+    background-color: #dddddd;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+
+.parole-biblique {
+    grid-area: bible;
+    background-color: #dddddd;
+    text-align: center;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 70px 10px;
+}
+
+.parole-biblique p {
+    text-align: justify;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+
+
+
+
+.pastDate {
+    color: #e50000;
+}
+
+.currentRun {
+    color: #008b09;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.evenement {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.image-event {
+    width: 500px;
+    height: 400px;
+}
+
+#popEvent {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0,0.9);
+}
+
+#popEvent-content {
+    display: grid;
+    color:#ffffff;
+}
+
+#popEvent-content img {
+    width: 400px;
+    height: auto;
+}
+
+.closeEvent {
+    position: absolute;
+    justify-self: end;
+    color: #aaa;
+    float: right;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.closeEvent:hover,
+.closeEvent:focus {
+  color: rgb(255, 63, 63);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+button a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.box {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.photo {
+    width: 250px;
+    height: 175px;
+}
+
+
+
+
+
+
+#calendrier {
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+
+
+
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    line-height: 40px;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: #000000;
+}
+
+footer div {
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer div:nth-child(1) {
+    border-right: 2px solid #000000;
+}
+
+.contactForm  {
+    width: 500px;
+    background-color: #dddddd;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 1.2rem;
+}

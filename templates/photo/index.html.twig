@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Photos{% endblock %}
+
+{% block body %}
+
+<button class="new">
+    <a href="{{ path('add_photo') }}">Ajouter une photo</a>
+</button>
+
+<div class="grid">
+{% for photo in photos %}
+    <div class="box">
+        <div class="photo-container">
+            <img src="{{ asset('/img/photos/' ~ photo.photo ~ '') }}" class="photo">
+        </div>
+        <div class="photo-infos">
+            {% if photo.description %}
+                <p>{{ photo.description }}</p>
+            {% endif %}
+            {% if photo.lien %}
+                <a href="{{ path('' ~ photo.lien ~ '') }}">Evénement</a>
+            {% endif %}
+        </div>
+        <div class="actions">
+            <button class="modify">
+                <a href="{{ path('mod_photo', {'id': photo.id }) }}">Modifier</a>
+            </button>
+            <button class="delete">
+                <a href="{{ path('suppr_photo', {'id': photo.id }) }}">Supprimer</a>
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

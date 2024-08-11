@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paroisse | Agenda{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('new_event') }}">Nouvel événement</a>
+<a href="{{ path('event_edition') }}">Gérer les événements</a>
+
+<div id="calendrier">
+
+</div>
+
+<div id="popEvent">
+    <div id="popEvent-content">
+        <span class="closeEvent">&times;</span>
+        <div id="infosEvent">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("popEvent");
+    var span = document.getElementsByClassName("closeEvent")[0];
+    const eventStart = document.createElement("p");
+    const eventEnd = document.createElement("p");
+    const eventTitle = document.createElement("h2");
+    const eventFile = document.createElement("img");
+    const eventDesc = document.createElement("p");
+    const eventLieu = document.createElement("p");
+    
+    //console.log('{{ data | raw }}');
+    //console.log(JSON.parse('{{ data | raw }}'));
+    window.onload = () => {
+        let calendarElement = document.querySelector("#calendrier");
+    
+        let calendar = new FullCalendar.Calendar(calendarElement, {
+            initialView: 'dayGridMonth',
+            locale: 'fr',
+            //timezone: 'Europe/Paris',
+            headerToolbar: {
+                left: 'prev,next, today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek',
+
+            },
+            events: JSON.parse('{{ data | raw }}'),
+            
+            eventClick: function(info) {
+                modal.style.display = "block";
+                eventTitle.innerHTML = info.event.title;
+                document.getElementById("popEvent-content").appendChild(eventTitle);
+                eventStart.innerHTML = info.event.start;
+                document.getElementById("infosEvent").appendChild(eventStart);
+                if(info.event.end) {
+                    eventEnd.innerHTML = info.event.end;
+                    document.getElementById("infosEvent").appendChild(eventEnd);
+                }
+                if (info.event.extendedProps.image) {
+                    eventFile.setAttribute("src", `{{ asset('img/event/${info.event.extendedProps.image}') }}`)
+                    document.getElementById("infosEvent").appendChild(eventFile)
+                }
+                if (!info.event.extendedProps.image) {
+                    eventFile.setAttribute("src", ``)
+                    document.getElementById("infosEvent").appendChild(eventFile)
+                }
+                if (info.event.extendedProps.description) {
+                    eventDesc.innerHTML = info.event.extendedProps.description
+                    document.getElementById("infosEvent").appendChild(eventDesc)
+                }
+                if (info.event.extendedProps.lieu) {
+                    eventLieu.innerHTML = info.event.extendedProps.lieu
+                    document.getElementById("infosEvent").appendChild(eventLieu)
+                }
+            },
+        });
+        calendar.render();
+    }
+
+    span.onclick = () => {
+        modal.style.display = "none";
+    }
+</script>
+
+{% endblock %}
